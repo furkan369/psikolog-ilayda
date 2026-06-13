@@ -156,6 +156,9 @@ ul { list-style: none; }
     gap: 32px;
 }
 
+/* Masaüstünde nav içindeki Randevu Al butonu gizli, mobilde görünür */
+.nav-randevu-item { display: none; }
+
 .nav-link {
     font-size: 13.5px;
     font-weight: 500;
@@ -971,6 +974,16 @@ ul { list-style: none; }
     .lang-switch,
     .btn-randevu,
     .header-right .social-icon { display: none; }
+
+    /* Nav içindeki Randevu Al mobilde görünsün */
+    .nav-randevu-item { display: block; margin-top: 6px; }
+    .btn-randevu-nav {
+        display: inline-block !important;
+        text-align: center;
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 14px;
+    }
 
     /* Header yüksekliğini mobil için ayarla */
     .header-inner { height: 60px; }
