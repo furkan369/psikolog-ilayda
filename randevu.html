@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Randevu Al - İlayda Evcil | Psikolog & Oyun Terapisti</title>
+    <meta name="description" content="İlayda Evcil ile randevunuzu online olarak oluşturun. Uygun gün ve saat seçerek seansınızı ayırtın.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="randevu-page">
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- HEADER / NAVİGASYON                     -->
+    <!-- ═══════════════════════════════════════ -->
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">Ψ</span>
+                <div class="logo-text">
+                    <span class="logo-name">İlayda Evcil</span>
+                    <span class="logo-title">Psikolog & Oyun Terapisti</span>
+                </div>
+            </a>
+
+            <nav class="nav" id="nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
+                    <li><a href="index.html#hizmetler" class="nav-link">Hizmetlerimiz</a></li>
+                    <li><a href="index.html#hakkimda" class="nav-link">Hakkımda</a></li>
+                    <li><a href="index.html#iletisim" class="nav-link">İletişim</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-right">
+                <a href="randevu.html" class="btn-randevu">Randevu Al</a>
+                <span class="lang-switch">EN</span>
+                <a href="https://instagram.com" target="_blank" class="social-icon" aria-label="Instagram">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Menüyü Aç/Kapat">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- RANDEVU HERO                            -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="randevu-hero">
+        <div class="container">
+            <h1 class="randevu-title">Tarih seçin, seansınızı ayırtın</h1>
+            <p class="randevu-desc">
+                Sizin için uygun günü seçin, ardından sakin ve özel bir seans ayırtın.
+                Uygunluğu onaylayıp randevunuzdan 24 saat önce hatırlatma
+                göndereceğiz.
+            </p>
+
+            <!-- Bilgi Kutuları -->
+            <div class="info-boxes">
+                <div class="info-box">
+                    <p class="info-box-label">Seans</p>
+                    <p class="info-box-value">50 dakika</p>
+                </div>
+                <div class="info-box">
+                    <p class="info-box-label">Format</p>
+                    <p class="info-box-value">Online veya ofis</p>
+                </div>
+                <div class="info-box">
+                    <p class="info-box-label">Yanıt</p>
+                    <p class="info-box-value">Aynı gün dönüş</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- RANDEVU FORMU                           -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="randevu-form-section">
+        <div class="container">
+            <div class="randevu-form-wrapper">
+                <form id="randevuForm">
+                    <!-- Form Alanları -->
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="ad">Ad</label>
+                            <input type="text" id="ad" class="form-input" placeholder="Adınız" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="soyad">Soyad</label>
+                            <input type="text" id="soyad" class="form-input" placeholder="Soyadınız" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="telefon">Telefon</label>
+                            <input type="tel" id="telefon" class="form-input" placeholder="+90 5xx xxx xx xx" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="eposta">E-posta</label>
+                            <input type="email" id="eposta" class="form-input" placeholder="ornek@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="konum">Konum</label>
+                            <select id="konum" class="form-select form-input" required>
+                                <option value="" disabled selected>Konum seçin</option>
+                                <option value="online">Online</option>
+                                <option value="ofis-meram">Ofis - Meram, Konya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="tarih">Tercih edilen tarih</label>
+                            <input type="date" id="tarih" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <!-- Uygunluk Bilgisi -->
+                    <div class="availability-info" id="availabilityInfo" style="display: none;">
+                        <p id="availabilityText"></p>
+                        <p>Uygunluğu onaylarken 12 saat boyunca saat seçiminizi tutuyoruz.</p>
+                    </div>
+
+                    <!-- Saat Seçimi -->
+                    <p class="time-slots-title">Tercih edilen saat</p>
+                    <div class="time-slots-grid" id="timeSlotsGrid">
+                        <!-- JavaScript ile doldurulacak -->
+                    </div>
+
+                    <!-- Alt Kısım -->
+                    <div class="form-bottom">
+                        <p class="form-bottom-text">
+                            Randevu talep ederek seansınızı doğrulamak için sizinle iletişime geçilmesini kabul etmiş olursunuz.
+                        </p>
+                        <button type="submit" class="btn-submit">RANDEVU TALEP ET</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- FOOTER                                  -->
+    <!-- ═══════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p class="copyright">© 2024 İlayda Evcil. Tüm hakları saklıdır.</p>
+            <div class="footer-socials">
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="mailto:psikologilaydaevcil@gmail.com" aria-label="E-Posta">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=2"></script>
+</body>
+</html>
