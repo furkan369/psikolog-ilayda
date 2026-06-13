@@ -12,6 +12,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ─── MOBİL HERO RESMI: SCROLL İLE SOLAR ───
+    const heroMobileImage = document.getElementById('heroMobileImage');
+    if (heroMobileImage) {
+        const fadeHeroImage = () => {
+            // Sadece mobil ekranlarda çalışsın
+            if (window.innerWidth > 768) {
+                heroMobileImage.style.opacity = '1';
+                return;
+            }
+            const imageHeight = heroMobileImage.offsetHeight;
+            const scrollY = window.scrollY;
+            // Resmin yüksekliğinin %60'ına kadar kaydırınca tamamen kaybolur
+            const fadeEnd = imageHeight * 0.6;
+            const opacity = Math.max(0, 1 - (scrollY / fadeEnd));
+            heroMobileImage.style.opacity = opacity;
+        };
+        window.addEventListener('scroll', fadeHeroImage, { passive: true });
+        window.addEventListener('resize', fadeHeroImage);
+        fadeHeroImage(); // Sayfa yüklenince başlat
+    }
+
     // ─── MOBİL MENÜ ───
     const menuToggle = document.getElementById('menuToggle');
     const nav = document.getElementById('nav');

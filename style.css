@@ -290,6 +290,9 @@ ul { list-style: none; }
     z-index: 2;
 }
 
+/* Mobil resim - masaüstünde gizli */
+.hero-mobile-image { display: none; }
+
 /* Metnin arkasındaki hafif yapboz/yaprak deseni */
 .hero-content::before {
     content: '';
@@ -994,12 +997,31 @@ ul { list-style: none; }
     .logo-icon { width: 34px; height: 34px; font-size: 20px; }
 
     /* === HERO === */
-    /* Mobilde arka plan resmi tamamen kaldırılıyor (yazıların üstüne biniyor) */
+    /* Mobilde arka plan resmi div olarak gösteriliyor */
     .hero {
         margin-top: 60px;
         min-height: auto;
         background-image: none;
         background-color: #FAF7F2;
+        overflow: visible;
+    }
+
+    /* Mobil resim: hero'nun tam genişliğinde, ortalı, scroll ile solar */
+    .hero-mobile-image {
+        display: block;
+        width: 100%;
+        max-height: 340px;
+        overflow: hidden;
+        position: relative;
+        transition: opacity 0.1s linear;
+    }
+
+    .hero-mobile-image img {
+        width: 100%;
+        height: 340px;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
     }
 
     .hero-inner {
