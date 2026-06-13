@@ -12,38 +12,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ─── MOBİL HERO RESMI: SCROLL İLE SOLAR (iOS Safari uyumlu) ───
+    // ─── MOBİL HERO RESMI: SCROLL İLE SOLAR (Safari + tüm tarayıcılar) ───
     const heroMobileImage = document.getElementById('heroMobileImage');
     if (heroMobileImage) {
-        let ticking = false;
+        // IntersectionObserver: Resim viewport'tan çıkarken opacity azalır
+        // Bu yöntem iOS Safari dahil tüm tarayıcılarda güvenilir çalışır
+        const thresholds = [];
+        for (let i = 0; i <= 1.0; i += 0.02) thresholds.push(parseFloat(i.toFixed(2)));
 
-        const fadeHeroImage = () => {
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (window.innerWidth <= 768) {
+                    // Resim ekrandan çıktıkça opaklık azalır (1.0 → 0)
+                    heroMobileImage.style.opacity = entry.intersectionRatio;
+                } else {
+                    heroMobileImage.style.opacity = '1';
+                }
+            });
+        }, {
+            threshold: thresholds,
+            rootMargin: '0px 0px 0px 0px'
+        });
+
+        imageObserver.observe(heroMobileImage);
+
+        // Ekran boyutu değişince (yatay/dikey geçiş) sıfırla
+        window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
                 heroMobileImage.style.opacity = '1';
-                return;
             }
-            // iOS Safari uyumu için pageYOffset kullan
-            const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-            const imageHeight = heroMobileImage.offsetHeight || 300;
-            const fadeEnd = imageHeight * 0.65;
-            const opacity = Math.max(0, 1 - (scrollY / fadeEnd));
-            heroMobileImage.style.opacity = opacity;
-            ticking = false;
-        };
-
-        const onScroll = () => {
-            if (!ticking) {
-                requestAnimationFrame(fadeHeroImage);
-                ticking = true;
-            }
-        };
-
-        // Hem scroll hem touchmove dinle (iOS Safari momentum scroll için)
-        window.addEventListener('scroll', onScroll, { passive: true });
-        window.addEventListener('touchmove', onScroll, { passive: true });
-        window.addEventListener('touchend', onScroll, { passive: true });
-        window.addEventListener('resize', fadeHeroImage);
-        fadeHeroImage();
+        });
     }
 
     // ─── MOBİL MENÜ ───
