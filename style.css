@@ -140,7 +140,8 @@ ul { list-style: none; }
     font-size: 16px;
     font-weight: 600;
     color: var(--text-dark);
-    line-height: 1.2;
+    line-height: 1.4;
+    padding-top: 2px;
 }
 
 .logo-title {
@@ -959,7 +960,7 @@ ul { list-style: none; }
     .nav-links { flex-direction: column; gap: 16px; }
     .nav-link { font-size: 15px; }
     .menu-toggle { display: flex; }
-    .lang-switch { display: none; }
+    .lang-switch, .btn-randevu, .header-right .social-icon { display: none; }
 
     /* Hero */
     .hero { 
