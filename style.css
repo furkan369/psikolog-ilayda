@@ -936,85 +936,111 @@ ul { list-style: none; }
     }
 }
 
-/* Mobil */
+/* ══════════════════════════════════════════
+   MOBİL (max 768px)
+   ══════════════════════════════════════════ */
 @media (max-width: 768px) {
+
+    /* === GENEL === */
     .container {
-        padding: 0 20px;
+        padding: 0 16px;
     }
 
+    /* === HEADER === */
     .nav {
         position: fixed;
-        top: 68px;
+        top: 60px;
         left: 0;
         right: 0;
         background: var(--bg-cream);
-        padding: 24px;
+        padding: 20px 16px;
         border-bottom: 1px solid var(--border-color);
-        transform: translateY(-120%);
+        transform: translateY(-130%);
         transition: var(--transition);
         box-shadow: var(--shadow-card);
+        z-index: 999;
     }
 
     .nav.open { transform: translateY(0); }
 
-    .nav-links { flex-direction: column; gap: 16px; }
-    .nav-link { font-size: 15px; }
+    .nav-links { flex-direction: column; gap: 18px; }
+    .nav-link { font-size: 16px; }
     .menu-toggle { display: flex; }
-    .lang-switch, .btn-randevu, .header-right .social-icon { display: none; }
 
-    /* Hero */
-    .hero { 
-        min-height: auto; 
-        background-position: right -150px bottom; 
-        background-size: 100% auto;
+    /* Mobilde gereksiz öğeleri gizle */
+    .lang-switch,
+    .btn-randevu,
+    .header-right .social-icon { display: none; }
+
+    /* Header yüksekliğini mobil için ayarla */
+    .header-inner { height: 60px; }
+
+    /* Logo hafif küçült */
+    .logo-name { font-size: 14px; }
+    .logo-title { font-size: 9px; }
+    .logo-icon { width: 34px; height: 34px; font-size: 20px; }
+
+    /* === HERO === */
+    /* Mobilde arka plan resmi tamamen kaldırılıyor (yazıların üstüne biniyor) */
+    .hero {
+        margin-top: 60px;
+        min-height: auto;
+        background-image: none;
+        background-color: #FAF7F2;
     }
 
     .hero-inner {
         flex-direction: column;
-        text-align: center;
-        padding: 40px 10px;
-        gap: 30px;
+        align-items: flex-start;
+        text-align: left;
+        padding: 32px 16px 40px;
+        min-height: auto;
+        gap: 0;
     }
 
     .hero-content {
         flex: none;
         max-width: 100%;
-        background: rgba(250, 247, 242, 0.85);
-        padding: 24px;
-        border-radius: var(--radius-md);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        width: 100%;
+        background: none;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
     }
     
-    .hero-content::before {
-        display: none;
-    }
+    .hero-content::before { display: none; }
 
-    .hero-title {
-        font-size: 32px;
-    }
+    .hero-title { font-size: 40px !important; line-height: 1.15; margin-bottom: 14px; }
+    .hero-subtitle { font-size: 10px; letter-spacing: 2px; margin-bottom: 8px; }
+    .hero-desc { font-size: 14px; line-height: 1.7; }
 
-    /* İçerik */
+    /* === İÇERİK BÖLÜMÜ === */
+    .content-section { padding: 24px 0 20px; }
+
     .content-grid {
         grid-template-columns: 1fr;
+        gap: 14px;
     }
 
-    .services-cards { flex-direction: column; }
-    .about-col { padding: 22px; }
+    .services-cards { flex-direction: column; gap: 12px; }
+    .service-card { width: 100%; }
+    .panel-box { padding: 18px; }
+    .about-col { padding: 18px; }
 
-    /* İletişim */
+    /* === İLETİŞİM === */
     .contact-bar {
         grid-template-columns: 1fr;
-        padding: 20px;
-        gap: 18px;
+        padding: 16px;
+        gap: 14px;
     }
 
     .contact-item { border-right: none; padding: 0; }
 
-    /* Randevu */
-    .info-boxes { grid-template-columns: 1fr; }
+    /* === RANDEVU === */
+    .info-boxes { grid-template-columns: 1fr; gap: 10px; }
     .form-grid { grid-template-columns: 1fr; }
     .time-slots-grid { grid-template-columns: repeat(3, 1fr); }
-    .randevu-form-wrapper { padding: 22px; }
+    .randevu-form-wrapper { padding: 18px; }
 
     .form-bottom {
         flex-direction: column;
@@ -1030,9 +1056,7 @@ ul { list-style: none; }
 
 @media (max-width: 480px) {
     .time-slots-grid { grid-template-columns: repeat(2, 1fr); }
-    .hero-title { font-size: 28px; }
-    .btn-randevu { padding: 8px 16px; font-size: 11.5px; }
-    .hero { background-size: 130% auto; background-position: center bottom; }
+    .hero-title { font-size: 32px !important; }
 }
 
 /* --- WHATSAPP SABİT BUTONU --- */
