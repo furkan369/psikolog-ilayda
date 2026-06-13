@@ -975,17 +975,27 @@ ul { list-style: none; }
 
     /* Mobilde gereksiz öğeleri gizle */
     .lang-switch,
-    .btn-randevu,
     .header-right .social-icon { display: none; }
 
-    /* Nav içindeki Randevu Al mobilde görünsün */
-    .nav-randevu-item { display: block; margin-top: 6px; }
-    .btn-randevu-nav {
-        display: inline-block !important;
+    /* Header'daki Randevu Al butonu gizle (nav menüde olacak) */
+    .header-right > a.btn-randevu { display: none; }
+
+    /* Nav içindeki Randevu Al mobilde görünsün - Safari uyumlu */
+    .nav-randevu-item {
+        display: list-item !important;
+        list-style: none;
+        margin-top: 8px;
+    }
+    .nav-randevu-item .btn-randevu {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
         text-align: center;
         width: 100%;
-        padding: 12px 20px;
-        font-size: 14px;
+        padding: 13px 20px;
+        font-size: 15px;
+        -webkit-appearance: none;
+        box-sizing: border-box;
     }
 
     /* Header yüksekliğini mobil için ayarla */

@@ -12,25 +12,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ─── MOBİL HERO RESMI: SCROLL İLE SOLAR ───
+    // ─── MOBİL HERO RESMI: SCROLL İLE SOLAR (iOS Safari uyumlu) ───
     const heroMobileImage = document.getElementById('heroMobileImage');
     if (heroMobileImage) {
+        let ticking = false;
+
         const fadeHeroImage = () => {
-            // Sadece mobil ekranlarda çalışsın
             if (window.innerWidth > 768) {
                 heroMobileImage.style.opacity = '1';
                 return;
             }
-            const imageHeight = heroMobileImage.offsetHeight;
-            const scrollY = window.scrollY;
-            // Resmin yüksekliğinin %60'ına kadar kaydırınca tamamen kaybolur
-            const fadeEnd = imageHeight * 0.6;
+            // iOS Safari uyumu için pageYOffset kullan
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            const imageHeight = heroMobileImage.offsetHeight || 300;
+            const fadeEnd = imageHeight * 0.65;
             const opacity = Math.max(0, 1 - (scrollY / fadeEnd));
             heroMobileImage.style.opacity = opacity;
+            ticking = false;
         };
-        window.addEventListener('scroll', fadeHeroImage, { passive: true });
+
+        const onScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(fadeHeroImage);
+                ticking = true;
+            }
+        };
+
+        // Hem scroll hem touchmove dinle (iOS Safari momentum scroll için)
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('touchmove', onScroll, { passive: true });
+        window.addEventListener('touchend', onScroll, { passive: true });
         window.addEventListener('resize', fadeHeroImage);
-        fadeHeroImage(); // Sayfa yüklenince başlat
+        fadeHeroImage();
     }
 
     // ─── MOBİL MENÜ ───
